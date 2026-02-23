@@ -1,79 +1,207 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
+
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Menú AR Premium</title>
 
 <script type="module"
 src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 
 <style>
+
 body{
-font-family: Arial, sans-serif;
-background:#f5f5f5;
-margin:0;
-text-align:center;
+    margin:0;
+    font-family: 'Segoe UI', sans-serif;
+    background:#0f0f0f;
+    color:white;
 }
 
-h1{
-background:#111;
-color:white;
-padding:15px;
-margin:0;
+/* HEADER PREMIUM */
+header{
+    text-align:center;
+    padding:25px;
+    font-size:26px;
+    letter-spacing:2px;
+    background:black;
+    border-bottom:1px solid #333;
 }
 
-.platos{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-gap:20px;
-padding:20px;
+/* GRID */
+.menu{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:25px;
+    padding:30px;
 }
 
+/* TARJETA */
+.card{
+    background:#181818;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 10px 25px rgba(0,0,0,0.6);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:scale(1.03);
+}
+
+/* MODELO */
 model-viewer{
-width:100%;
-height:400px;
-background:white;
-border-radius:15px;
-box-shadow:0 5px 15px rgba(0,0,0,0.2);
+    width:100%;
+    height:260px;
+    background:#111;
 }
+
+/* INFO */
+.info{
+    padding:18px;
+}
+
+.nombre{
+    font-size:20px;
+    font-weight:bold;
+    margin-bottom:8px;
+}
+
+.ingredientes{
+    font-size:14px;
+    color:#cfcfcf;
+    line-height:1.5;
+}
+
+/* BOTON AR */
+.ar-btn{
+    margin-top:15px;
+    background:#c9a227;
+    border:none;
+    color:black;
+    padding:12px;
+    width:100%;
+    border-radius:10px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
 </style>
 </head>
 
 <body>
 
-<h1>🍽️ MENÚ REALIDAD AUMENTADA</h1>
+<header>
+🍽️ MENÚ REALIDAD AUMENTADA
+</header>
 
-<div class="platos">
+<div class="menu">
 
-<model-viewer src="arroz.glb"
-ar
-ar-modes="webxr scene-viewer quick-look"
-camera-controls
-auto-rotate>
-</model-viewer>
+<!-- PLATO 1 -->
+<div class="card">
+<model-viewer id="p1"
+src="arroz.glb"
+camera-controls auto-rotate ar></model-viewer>
 
-<model-viewer src="bife.glb"
-ar
-camera-controls
-auto-rotate>
-</model-viewer>
+<div class="info">
+<div class="nombre">Arroz Marinero</div>
+<div class="ingredientes">
+Arroz con camarón, calamar y pescado fresco,
+salteado en especias marinas,
+ajo artesanal y toque cítrico.
+</div>
+<button class="ar-btn"
+onclick="document.getElementById('p1').activateAR()">
+Ver en tu mesa 🍽️
+</button>
+</div>
+</div>
 
-<model-viewer src="ceviche.glb"
-ar
-camera-controls
-auto-rotate>
-</model-viewer>
+<!-- PLATO 2 -->
+<div class="card">
+<model-viewer id="p2"
+src="bife.glb"
+camera-controls auto-rotate ar></model-viewer>
 
-<model-viewer src="hamburguesa.glb"
-ar
-camera-controls
-auto-rotate>
-</model-viewer>
+<div class="info">
+<div class="nombre">Bife Premium</div>
+<div class="ingredientes">
+Corte selecto de res,
+papas doradas,
+reducción especial del chef
+y ensalada fresca.
+</div>
+<button class="ar-btn"
+onclick="document.getElementById('p2').activateAR()">
+Ver en tu mesa 🍽️
+</button>
+</div>
+</div>
 
-<model-viewer src="tigrillo.glb"
-ar
-camera-controls
-auto-rotate>
-</model-viewer>
+<!-- PLATO 3 -->
+<div class="card">
+<model-viewer id="p3"
+src="ceviche.glb"
+camera-controls auto-rotate ar></model-viewer>
+
+<div class="info">
+<div class="nombre">Ceviche Mixto</div>
+<div class="ingredientes">
+Camarón y pescado fresco,
+limón natural,
+cebolla morada,
+cilantro y maíz tostado ecuatoriano.
+</div>
+<button class="ar-btn"
+onclick="document.getElementById('p3').activateAR()">
+Ver en tu mesa 🍽️
+</button>
+</div>
+</div>
+
+<!-- PLATO 4 -->
+<div class="card">
+<model-viewer id="p4"
+src="hamburguesa.glb"
+camera-controls auto-rotate ar></model-viewer>
+
+<div class="info">
+<div class="nombre">Hamburguesa Gourmet</div>
+<div class="ingredientes">
+Carne premium,
+queso cheddar fundido,
+pan artesanal,
+lechuga fresca y salsa especial.
+</div>
+<button class="ar-btn"
+onclick="document.getElementById('p4').activateAR()">
+Ver en tu mesa 🍽️
+</button>
+</div>
+</div>
+
+<!-- PLATO 5 -->
+<div class="card">
+<model-viewer id="p5"
+src="tigrillo.glb"
+camera-controls auto-rotate ar></model-viewer>
+
+<div class="info">
+<div class="nombre">Tigrillo Tradicional</div>
+<div class="ingredientes">
+Verde majado,
+queso fresco,
+huevo criollo,
+chicharrón artesanal
+y refrito ecuatoriano.
+</div>
+<button class="ar-btn"
+onclick="document.getElementById('p5').activateAR()">
+Ver en tu mesa 🍽️
+</button>
+</div>
+</div>
 
 </div>
 
